@@ -1,0 +1,34 @@
+package com.duedash;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
+import com.duedash.security.AppProperties;
+
+@SpringBootApplication
+public class DuedashApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(DuedashApplication.class, args);
+	}
+	@Bean
+	public BCryptPasswordEncoder bCryptPasswordEncoder() {
+		
+		return new BCryptPasswordEncoder();
+	}
+	@Bean
+	public SpringApplicationContext springApplicationContext() {
+	
+	return new SpringApplicationContext();
+	}
+	
+	@Bean(name="AppProperties")
+	 public AppProperties getAppProperties()
+	 {
+		return new AppProperties();
+	 }
+	}
+
+
